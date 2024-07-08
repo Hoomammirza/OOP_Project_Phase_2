@@ -1,42 +1,51 @@
 package com.example.oop_project_phase2;
 
 import com.example.oop_project_phase2.Game.Game;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class SceneController {
-    public static void run(){
-        int n = 1;
-        boolean quit = false;
-        while (!quit){
-            switch (n){
-                case 0:
-                    return;
-                case 1:
-                    n = MenuSelect.run();
-                    break;
-                case 2:
-                    n = signin.run();
-                    break;
-                case 3:
-                    n = signup.run();
-                    break;
-                case 4:
-                    n=MainMenu.run();
-                    break;
-                case 5:
-                    n=ProfileMenu.run();
-                    break;
-                case 6:
-                    n= Game.run();
-                    break;
-                case 7:
-                    n=History.run();
-                    break;
-                case 8:
-                    n=AdminMenu.run();
-                    break;
-                case 9:
-                    n=ShopMenu.run();
-            }
+    public static Stage stage;
+    public static void switchtoMenuselect() {
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 600, 400);
+        }catch (Exception e){
+            System.out.println(e);
         }
+        stage.setTitle("Chert-O-Pert");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void switchtoSignin() {
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 600, 400);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        stage.setTitle("Chert-O-Pert");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void switchtoSignup() {
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 600, 400);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        stage.setTitle("Chert-O-Pert");
+        stage.setScene(scene);
+        stage.show();
     }
 }
