@@ -2,6 +2,7 @@ package com.example.oop_project_phase2;
 
 
 import com.example.oop_project_phase2.Game.Game;
+import com.example.oop_project_phase2.Game.Gameinit;
 import com.example.oop_project_phase2.Misc.Misc;
 import com.example.oop_project_phase2.UserManagement.User;
 import com.example.oop_project_phase2.UserManagement.Users;
@@ -48,10 +49,10 @@ public class MainMenu {
             exitAccount=Misc.getMatcher(in,"exit account");
 
             if (startGame.find()){
-                Game.wager = false;
+                Gameinit.wager = false;
                 return 6;
             }if (startGamewager.find()){
-                Game.wager = true;
+                Gameinit.wager = true;
                 return 6;
             }else if (showCard.find()){
                 printCard();

@@ -21,21 +21,6 @@ public class GameController {
     static public int round;
     static boolean finish=false;
     public boolean UsersReady = false;
-    public void initusers() throws NoUserException, PasswordExeption {
-        try {
-            quest1 = signin();
-        }
-        catch (NoUserException | PasswordExeption e){
-            throw e;
-        }
-        host1.timeline = new Card[10];
-        quest1.timeline = new Card[10];
-    }
-    public User signin() throws NoUserException, PasswordExeption {
-        return null;
-    };
-    public void nextphase(){
-    }
     public static void run(User host,User Guest) {
         host1=host;
         quest1=Guest;
@@ -250,15 +235,15 @@ public class GameController {
         if(host.hitpoint>0)
         {
             hostwin = true;
-            if(Game.wager)
+            if(Gameinit.wager)
             {
                 System.out.println("user "+host.Nickname+" win!!");
-                System.out.println("user "+host.Nickname+" get "+Game.wagerint+" coin");
+                System.out.println("user "+host.Nickname+" get "+Gameinit.wagerint+" coin");
                 System.out.println("user "+guest.Nickname+" lose!!");
-                int a=-Game.wagerint;
+                int a=-Gameinit.wagerint;
                 System.out.println("user "+guest.Nickname+"get "+a+" coin");
-                host.Coins+=Game.wagerint;
-                guest.Coins-=Game.wagerint;
+                host.Coins+=Gameinit.wagerint;
+                guest.Coins-=Gameinit.wagerint;
             }
             else
             {
@@ -275,15 +260,15 @@ public class GameController {
         else if(guest.hitpoint>0)
         {
             hostwin = false;
-            if(Game.wager)
+            if(Gameinit.wager)
             {
                 System.out.println("user "+guest.Nickname+" win!!");
-                System.out.println("user "+guest.Nickname+" get "+Game.wagerint+" coin");
+                System.out.println("user "+guest.Nickname+" get "+Gameinit.wagerint+" coin");
                 System.out.println("user "+host.Nickname+" lose!!");
-                int a=-Game.wagerint;
+                int a=-Gameinit.wagerint;
                 System.out.println("user "+host.Nickname+"get "+a+" coin");
-                guest.Coins+=Game.wagerint;
-                host.Coins-=Game.wagerint;
+                guest.Coins+=Gameinit.wagerint;
+                host.Coins-=Gameinit.wagerint;
             }
             else
             {
