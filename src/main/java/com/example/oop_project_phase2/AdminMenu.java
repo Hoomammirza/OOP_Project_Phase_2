@@ -1,5 +1,10 @@
 package com.example.oop_project_phase2;
 
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.card.Card;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;

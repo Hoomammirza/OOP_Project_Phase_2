@@ -1,4 +1,6 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.UserManagement;
+
+import com.example.oop_project_phase2.card.Card;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -342,7 +344,7 @@ public class SQLhandler {
         } catch (Exception e){System.out.println(e);}
         return 0;
     }
-    public static ArrayList<Historyitem> getHistory(User user,String sort){
+    public static ArrayList<Historyitem> getHistory(User user, String sort){
         ResultSet rs;
         Statement statement;
 

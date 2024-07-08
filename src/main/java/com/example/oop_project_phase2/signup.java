@@ -1,5 +1,12 @@
 package com.example.oop_project_phase2;
 
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.UserManagement.Users;
+import com.example.oop_project_phase2.UserManagement.WeakPasswordException;
+import com.example.oop_project_phase2.card.Card;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -132,7 +139,7 @@ public class signup {
         Matcher signup;
         Matcher back;
         System.out.println("commands:\n" +
-                "*  user create -u <username> -p <password> <password confirmation> –email <email> -n <nickname>\n" +
+                "*  user create -u <username> -p <password> <password confirmation> -email <email> -n <nickname>\n" +
                 "*  show current menu\n" +
                 "*  exit");
 
@@ -203,7 +210,7 @@ public class signup {
                                 "answer using this format:" +
                                 "question pick -q <question-number> -a <answer> -c <answer- confirm>");
                         String input = new Scanner(System.in).nextLine();
-                        Matcher matcher1 = Misc.getMatcher(input, "^question(\\s+)pick(\\s+)-q(\\s+)(?<questionnumber>\\S+)(\\s+)-a(\\s+)(?<answer>\\S+)(\\s+)-c(\\s+)(?<answerconfirm>\\S+)$");
+                        Matcher matcher1 = Misc.getMatcher(input, "^question(\\s+)pick(\\s+)-q(\\s+)(?<questionnumber>\\S+)(\\s+)-a(\\s+)(?<answer>\\S+)(\\s+)-c(\\s+)(?<answerconfirm>\\S+)(\\s*)$");
                         if (matcher1.find()) {
                             securityQs = matcher1.group("questionnumber");
                             if (securityQs.matches("\\d")) {

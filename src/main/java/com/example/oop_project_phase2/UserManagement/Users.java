@@ -1,4 +1,6 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.UserManagement;
+
+import com.example.oop_project_phase2.Misc.Timer;
 
 public class Users {
     public static User LoginUser = null;

@@ -1,7 +1,12 @@
 package com.example.oop_project_phase2;
 
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.UserManagement.Users;
+import com.example.oop_project_phase2.UserManagement.WeakPasswordException;
+
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;

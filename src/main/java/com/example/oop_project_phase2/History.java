@@ -1,8 +1,13 @@
 package com.example.oop_project_phase2;
 
 
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.Historyitem;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.UserManagement.Users;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 

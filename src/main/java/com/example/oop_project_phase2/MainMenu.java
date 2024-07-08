@@ -1,6 +1,11 @@
 package com.example.oop_project_phase2;
 
 
+import com.example.oop_project_phase2.Game.Game;
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.UserManagement.Users;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -8,7 +13,7 @@ public class MainMenu {
     public static User user;
     private static Scanner input = new Scanner(System.in);
     public static int run(){
-        user=Users.LoginUser;
+        user= Users.LoginUser;
         String in;
         boolean quit = false;
 

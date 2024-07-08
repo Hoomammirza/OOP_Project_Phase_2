@@ -1,11 +1,14 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.Game;
 
+
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.card.Card;
 
 import java.util.Objects;
 import java.util.Random;
 
 public  class TimelineController {
-    public static void doCard(User Host,User Guest,String feauture)
+    public static void doCard(User Host, User Guest, String feauture)
     {
         if(CardsController.doActionNow(feauture))
         {

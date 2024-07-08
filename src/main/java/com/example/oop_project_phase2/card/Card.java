@@ -1,4 +1,6 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.card;
+
+import com.example.oop_project_phase2.UserManagement.User;
 
 import java.util.Objects;
 import java.util.Random;

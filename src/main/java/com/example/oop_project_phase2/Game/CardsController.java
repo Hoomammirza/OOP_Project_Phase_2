@@ -1,12 +1,15 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.Game;
 
+
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.card.Card;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
 public class CardsController {
-    public static void feature(String feature, User host, User guest,int round)
+    public static void feature(String feature, User host, User guest, int round)
     {
         if(Objects.equals(feature,"healing"))
         {

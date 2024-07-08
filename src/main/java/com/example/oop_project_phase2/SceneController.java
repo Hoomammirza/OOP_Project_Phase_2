@@ -1,7 +1,6 @@
 package com.example.oop_project_phase2;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
+import com.example.oop_project_phase2.Game.Game;
 
 public class SceneController {
     public static void run(){
@@ -27,7 +26,7 @@ public class SceneController {
                     n=ProfileMenu.run();
                     break;
                 case 6:
-                    n=Game.run();
+                    n= Game.run();
                     break;
                 case 7:
                     n=History.run();

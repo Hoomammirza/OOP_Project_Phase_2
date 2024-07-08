@@ -1,5 +1,8 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.Game;
 
+
+import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.*;
 
 import java.util.Objects;
 import java.util.Scanner;

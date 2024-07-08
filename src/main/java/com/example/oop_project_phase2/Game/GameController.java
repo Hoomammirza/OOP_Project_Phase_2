@@ -1,5 +1,11 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.Game;
 
+
+import com.example.oop_project_phase2.UserManagement.NoUserException;
+import com.example.oop_project_phase2.UserManagement.PasswordExeption;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
+import com.example.oop_project_phase2.UserManagement.User;
+import com.example.oop_project_phase2.card.Card;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -15,7 +21,7 @@ public class GameController {
     static public int round;
     static boolean finish=false;
     public boolean UsersReady = false;
-    public void initusers() throws NoUserException,PasswordExeption{
+    public void initusers() throws NoUserException, PasswordExeption {
         try {
             quest1 = signin();
         }

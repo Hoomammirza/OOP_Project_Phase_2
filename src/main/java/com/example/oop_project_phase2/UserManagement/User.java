@@ -1,5 +1,7 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.UserManagement;
 
+
+import com.example.oop_project_phase2.card.Card;
 
 import java.util.ArrayList;
 

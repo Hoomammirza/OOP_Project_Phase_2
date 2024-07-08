@@ -1,4 +1,4 @@
-package com.example.oop_project_phase2;
+package com.example.oop_project_phase2.Misc;
 
 public class Timer {
     long targettime;
