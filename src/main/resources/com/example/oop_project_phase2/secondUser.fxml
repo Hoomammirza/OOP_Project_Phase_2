@@ -10,10 +10,16 @@
 <AnchorPane prefHeight="500.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.Game.guestUser">
    <children>
       <Label layoutX="26.0" layoutY="14.0" prefHeight="60.0" prefWidth="117.0" text="guest" />
-      <TextField layoutX="94.0" layoutY="86.0" prefHeight="43.0" prefWidth="156.0" />
+      <TextField fx:id="username" layoutX="94.0" layoutY="86.0" prefHeight="43.0" prefWidth="156.0" />
       <Label layoutX="12.0" layoutY="90.0" prefHeight="36.0" prefWidth="78.0" text="username:" />
       <Label layoutX="14.0" layoutY="154.0" prefHeight="30.0" prefWidth="78.0" text="password:" />
-      <PasswordField layoutX="97.0" layoutY="147.0" prefHeight="43.0" prefWidth="156.0" />
-      <Button fx:id="signinGuest" layoutX="116.0" layoutY="232.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="118.0" text="signin" />
+      <PasswordField fx:id="password" layoutX="97.0" layoutY="147.0" prefHeight="43.0" prefWidth="156.0" />
+      <Button fx:id="signinGuest" layoutX="116.0" layoutY="232.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="118.0" text="signin" />
+      <Label fx:id="coinLabel" layoutX="414.0" layoutY="14.0" prefHeight="43.0" prefWidth="95.0" text="coin" />
+      <TextField fx:id="coin" layoutX="354.0" layoutY="92.0" prefHeight="30.0" prefWidth="146.0" />
+      <Button fx:id="wager" layoutX="391.0" layoutY="154.0" mnemonicParsing="false" onAction="#selectwager" prefHeight="30.0" prefWidth="71.0" text="wager" />
+      <Button fx:id="startgame" layoutX="207.0" layoutY="377.0" mnemonicParsing="false" onAction="#startGame" prefHeight="50.0" prefWidth="162.0" text="start game" />
+      <Label fx:id="loginException" layoutX="94.0" layoutY="56.0" prefHeight="18.0" prefWidth="156.0" />
+      <Label fx:id="coinException" layoutX="354.0" layoutY="56.0" prefHeight="18.0" prefWidth="156.0" />
    </children>
 </AnchorPane>

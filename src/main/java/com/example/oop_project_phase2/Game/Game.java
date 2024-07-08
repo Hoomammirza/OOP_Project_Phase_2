@@ -9,13 +9,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class Game {
-    public static int run() {
-        Gameinit.initGuest();
-        if (Gameinit.wager)
-            Gameinit.pickwager();
-        GameController.run(Gameinit.Host,Gameinit.Guest);
-        return 4;
-    }
     static Scanner input=new Scanner(System.in);
     public static void timelineInputOutput(User Host,User Guest){
         boolean exit=false;

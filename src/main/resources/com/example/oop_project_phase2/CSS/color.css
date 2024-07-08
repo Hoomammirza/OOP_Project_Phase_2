@@ -4,3 +4,17 @@
 #signinGuest:hover{
     -fx-background-color: #03ce03;
 }
+#wager{
+    -fx-background-color: rgba(114, 9, 9, 0.93);
+}
+#signinGuest:hover{
+    -fx-background-color: #ec0808;
+}
+#startgame
+{
+    -fx-background-color: #0863ec;
+}
+#startgame:hover
+{
+    -fx-background-color: #0813ec;
+}
