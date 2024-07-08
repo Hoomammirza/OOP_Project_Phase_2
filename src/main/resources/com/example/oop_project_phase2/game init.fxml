@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.oop_project_phase2.Game.Gameinit"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="624.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.Game.Gameinit">
+   <children>
+      <Label fx:id="user" layoutX="8.0" layoutY="10.0" prefHeight="62.0" prefWidth="262.0" />
+      <ImageView fitHeight="191.0" fitWidth="200.0" layoutX="14.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CSS/image/gunner.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="192.0" layoutX="216.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CSS/image/figter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="210.0" layoutX="205.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CSS/image/wizard.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="422.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CSS/image/dancer.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
