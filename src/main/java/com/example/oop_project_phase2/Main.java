@@ -14,7 +14,7 @@ public class Main extends Application {
         SQLhandler.connect();
         SceneController.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

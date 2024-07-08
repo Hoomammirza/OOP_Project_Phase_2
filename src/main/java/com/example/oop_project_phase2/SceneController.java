@@ -3,6 +3,7 @@ package com.example.oop_project_phase2;
 import com.example.oop_project_phase2.Game.Game;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,19 @@ public class SceneController {
     }
     public static void switchtoSignin() {
         stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Signin.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 600, 500);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        stage.setTitle("Chert-O-Pert");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void switchtoSignup() {
+        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
         Scene scene = null;
         try {
@@ -35,7 +49,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    public static void switchtoSignup() {
+    public static void switchtoMainMenu() {
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MenuSelect.fxml"));
         Scene scene = null;

@@ -21,7 +21,7 @@ public class Users {
             return user;
         }catch (NoUserException | PasswordExeption e){
             NumberOfTries++;
-            FailLoginTimer = new Timer(5000 * NumberOfTries);
+            FailLoginTimer = new Timer(10000);
             throw e;
         }
     }

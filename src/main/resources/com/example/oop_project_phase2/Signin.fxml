@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.signin">
+   <children>
+      <VBox layoutX="123.0" layoutY="120.0" prefHeight="72.0" prefWidth="305.0">
+         <children>
+            <HBox fx:id="Usernamebox" alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:    " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Username" onAction="#SQupdate" promptText="enter your username" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="Passwordbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:     " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="Password" promptText="enter your password" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="Controlbox" alignment="CENTER" layoutX="10.0" layoutY="118.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <GridPane prefHeight="36.0" prefWidth="385.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="isNewUser" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ForgotPasswordCheck" text="forgot password ?" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#signaction" prefHeight="25.0" prefWidth="150.0" text="Signin" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
+            <HBox fx:id="errorbox" alignment="CENTER" layoutX="10.0" layoutY="118.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text fx:id="errortext" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="error" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="Textbox" alignment="CENTER" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please answer the question below:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="SQQbox" alignment="CENTER" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text fx:id="SQ" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="SQAbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:        " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="SQA" promptText="enter your password" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="NewPasswordbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Password: " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="NewPassword" promptText="enter your password" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="Controlbox1" alignment="CENTER" layoutX="10.0" layoutY="82.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Button fx:id="ChangePasswordButton" alignment="CENTER" mnemonicParsing="false" onAction="#ForgetPassword" prefHeight="25.0" prefWidth="150.0" text="Change Password" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="115.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spotify">
+         <font>
+            <Font name="Algerian" size="96.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" layoutX="252.0" layoutY="455.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="97.0" text="Back" />
+   </children>
+</AnchorPane>
