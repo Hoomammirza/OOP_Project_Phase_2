@@ -16,7 +16,7 @@
       </ImageView>
       <ImageView fitHeight="191.0" fitWidth="192.0" layoutX="216.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@CSS/image/figter.png" />
+            <Image url="@CSS/image/fighter.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="191.0" fitWidth="210.0" layoutX="205.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
