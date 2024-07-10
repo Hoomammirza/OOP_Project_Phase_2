@@ -87,11 +87,11 @@ public class GameController {
             quest1.become6CardInHandOneTime = false;
         }
     }
-    public void end4round(){
+    public static void end4round(){
         attackUser(host1,quest1);
         endRound(host1,quest1);
     }
-    public void endGAME(){
+    public static void endGAME(){
         endGame(host1,quest1);
         SQLhandler.updateUser(host1);
         SQLhandler.updateUser(quest1);

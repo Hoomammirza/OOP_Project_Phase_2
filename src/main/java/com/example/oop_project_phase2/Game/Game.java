@@ -44,10 +44,11 @@ public class Game {
     Label hitpointGuest,hitpointHost;
     public void initialize(){
         setTableGame();
+        GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
         startHand();
         GameController.init(Gameinit.Host,Gameinit.Guest);
-        changeGraphicElement(Gameinit.Host,Gameinit.Guest);
+//        changeGraphicElement(Gameinit.Host,Gameinit.Guest);
     }
     static Scanner input=new Scanner(System.in);
 //    public static void timelineInputOutput(User Host,User Guest){
@@ -439,15 +440,27 @@ public class Game {
                  if (mouseEvent.getSceneY() > 281.5 && mouseEvent.getSceneY() < 357){
                      int n = (int)((int)(mouseEvent.getSceneX()-8)/43.905);{
                          if (GameController.host2.hand.get(temp).feature == null){
-                             TimelineController.setCardInGameWithSpace(GameController.host2,GameController.quest2,temp,n);
-
+                             if(!TimelineController.setCardInGameWithSpace(GameController.host2,GameController.quest2,temp,n))
+                                 return;
                          }else if (GameController.host2.hand.get(temp).feature.equals("duplicator")){
-                             TimelineController.SetDuplicator(GameController.host2,GameController.quest2,temp,n);
+                             if(!TimelineController.SetDuplicator(GameController.host2,GameController.quest2,temp,n))
+                                 return;
                          }else {
-                             TimelineController.setCardInGameWithNoSpace(GameController.host2,GameController.quest2,temp);
+                             if(!TimelineController.setCardInGameWithNoSpace(GameController.host2,GameController.quest2,temp))
+                                 return;
                          }
                          Game.showHand(GameController.host2,GameController.quest2);
-                         setTimLineImage(GameController.host2,GameController.quest2);
+                         GameController.endlittleround();
+                         if ((GameController.whoStart && GameController.host2 == GameController.host1)||(!GameController.whoStart && GameController.host2 == GameController.quest1)){
+                             GameController.freshhand();
+                             Game.showHand(GameController.host2,GameController.quest2);
+                         }
+                         if (GameController.round == 0){
+                             GameController.end4round();
+                         }
+                         if (GameController.finish){
+                             GameController.endGAME();
+                         }
                      }
                  }
              }
@@ -465,15 +478,15 @@ public class Game {
             handguest.add(handGuestInformation[i],i,0);
         }
     }
-    public void changeGraphicElement(User Host,User Guest)
-    {
-        setCharacter(Host,Guest);
-        showHand(Host,Guest);
-        guestname.setText(Guest.Nickname);
-        hostname.setText(Host.Nickname);
-        hitpointGuest.setText(String.valueOf(Guest.hitpoint));
-        hitpointHost.setText(String.valueOf(Host.hitpoint));
-    }
+//    public void changeGraphicElement(User Host,User Guest)
+//    {
+//        setCharacter(Host,Guest);
+//        showHand(Host,Guest);
+//        guestname.setText(Guest.Nickname);
+//        hostname.setText(Host.Nickname);
+//        hitpointGuest.setText(String.valueOf(Guest.hitpoint));
+//        hitpointHost.setText(String.valueOf(Host.hitpoint));
+//    }
     public void setTimLineImage(User host,User guest)
     {
         for(int i=0;i<21;i++)
