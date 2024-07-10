@@ -46,6 +46,7 @@ public class SceneController {
         stage.setTitle("Chert-O-Pert!");
         stage.setScene(scene);
         stage.show();
+        ((MainMenu)fxmlLoader.getController()).firsttime();
     }
     public static void switchtoSecondUser() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("secondUser.fxml"));

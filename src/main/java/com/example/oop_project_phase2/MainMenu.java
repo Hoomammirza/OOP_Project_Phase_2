@@ -4,9 +4,11 @@ package com.example.oop_project_phase2;
 import com.example.oop_project_phase2.Game.Game;
 import com.example.oop_project_phase2.Game.Gameinit;
 import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.UserManagement.SQLhandler;
 import com.example.oop_project_phase2.UserManagement.User;
 import com.example.oop_project_phase2.UserManagement.Users;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -101,6 +103,17 @@ public class MainMenu {
 //                    "level:  "+Users.LoginUser.cards.get(i).level);
 //        }
 //    }
+    public void firsttime(){
+        if (user.isFirst){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Congratulation");
+            alert.setHeaderText(null);
+            alert.setContentText("You were gifted 20 Cards!");
+            alert.showAndWait();
+            user.isFirst = false;
+            SQLhandler.updateUser(user);
+        }
+    }
     public void Profile() throws IOException {
         SceneController.switchtoProfile();
     }
@@ -113,8 +126,9 @@ public class MainMenu {
         Gameinit.wager = false;
         SceneController.switchtoSecondUser();
     }
-    public void SGwa(){
+    public void SGwa() throws IOException {
         Gameinit.wager = true;
+        SceneController.switchtoSecondUser();
     }
     public void logout(){
         SceneController.switchtoMenuselect();

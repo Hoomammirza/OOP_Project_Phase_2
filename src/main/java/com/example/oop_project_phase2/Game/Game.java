@@ -3,10 +3,13 @@ package com.example.oop_project_phase2.Game;
 
 import com.example.oop_project_phase2.Misc.Misc;
 import com.example.oop_project_phase2.UserManagement.*;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.io.File;
@@ -17,6 +20,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class Game {
+    public static int temp;
     @FXML
     GridPane tableGame,handhost,handguest;
     @FXML
@@ -33,8 +37,9 @@ public class Game {
     ImageView imageHost,imageGuest;
     @FXML
     Label hostname,guestname;
+    @FXML
+    AnchorPane Root;
     public void initialize(){
-
         setTableGame();
         GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
@@ -401,6 +406,31 @@ public class Game {
          handhostImage[i]=new ImageView(resourceManagement.wall);
          handhostImage[i].setFitWidth(86);
          handhostImage[i].setFitHeight(89);
+         handhostImage[i].setOnMouseDragged(new EventHandler<MouseEvent>() {
+             @Override
+             public void handle(MouseEvent mouseEvent) {
+                 ImageView imageView =  (ImageView) mouseEvent.getSource();
+                 imageView.setX(mouseEvent.getSceneX());
+                 imageView.setY(mouseEvent.getSceneY());
+             }
+         });
+         handhostImage[i].setOnMouseDragEntered(new EventHandler<MouseEvent>() {
+             @Override
+             public void handle(MouseEvent mouseEvent) {
+                 ImageView imageView =  (ImageView) mouseEvent.getSource();
+                 temp = handhost.getChildren().indexOf(imageView);
+                 handhost.getChildren().remove(imageView);
+                 Root.getChildren().add(handhost);
+             }
+         });
+         handhostImage[i].setOnMouseDragExited(new EventHandler<MouseEvent>() {
+             @Override
+             public void handle(MouseEvent mouseEvent) {
+                 ImageView imageView =  (ImageView) mouseEvent.getSource();
+                 Root.getChildren().remove(imageView);
+                 handhost.add(imageView,temp,0);
+             }
+         });
          handhost.add(handhostImage[i],i,1);
          handhost.add(handhostInformation[i],i,0);
         }

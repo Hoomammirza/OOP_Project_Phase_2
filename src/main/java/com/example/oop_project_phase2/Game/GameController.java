@@ -54,20 +54,20 @@ public class GameController {
             quest2 = host1;
         }
     }
-    public void calculategame(){
-            if (whoStart) {
-                while (round > 0) {
+//    public void calculategame(){
+//            if (whoStart) {
+//                while (round > 0) {
 //                    Game.timelineInputOutput(host1, quest1);
 //                    Game.timelineInputOutput(quest1, host1);
-                }
-            }
-            else {
-                while (round > 0) {
+//                }
+//            }
+//            else {
+//                while (round > 0) {
 //                    Game.timelineInputOutput(quest1, host1);
 //                    Game.timelineInputOutput(host1, quest1);
-                }
-            }
-    }
+//                }
+//            }
+//    }
     public static void endlittleround(){
         User temp;
         temp = host2;
