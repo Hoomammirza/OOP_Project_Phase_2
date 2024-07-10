@@ -3,12 +3,32 @@ package com.example.oop_project_phase2.Game;
 
 import com.example.oop_project_phase2.Misc.Misc;
 import com.example.oop_project_phase2.UserManagement.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class Game {
+    @FXML
+    GridPane tableGame;
+    @FXML
+    ImageView [] [] cardImage=new ImageView[2][21];
+    @FXML
+    ImageView imageHost,imageGuest;
+    @FXML
+    Label hostname,guestname;
+    public void initialize(){
+        setTableGame();
+        GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
+        setCharacter(Gameinit.Host,Gameinit.Guest);
+    }
     static Scanner input=new Scanner(System.in);
     public static void timelineInputOutput(User Host,User Guest){
         boolean exit=false;
@@ -268,6 +288,75 @@ public class Game {
             System.out.println("incorrect nickname");
         }
     }
+    public void setTableGame()
+    {
+        for (int i=0;i<2;i++)
+        {
+            for(int j=0;j<21;j++)
+            {
+                try {
+                    cardImage[i][j]=new ImageView(resourceManagement.cell);
+                    cardImage[i][j].setFitWidth(45);
+                    cardImage[i][j].setFitHeight(78);
+                    tableGame.add(cardImage[i][j],j,i);
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e);
+                }
+            }
+        }
+    }
+    public void setCharacter(User Host,User Guest)
+    {
+        if(Host.character==User.Character.valueOf("Gunner"))
+        {
+            imageHost.setImage(resourceManagement.gunner);
+            imageHost.setFitHeight(150);
+            imageHost.setFitWidth(200);
+
+        }
+        else if(Host.character==User.Character.valueOf("Fighter"))
+        {
+            imageHost.setImage(resourceManagement.fighter);
+            imageHost.setFitHeight(150);
+            imageHost.setFitWidth(200);
+        }
+        else if(Host.character==User.Character.valueOf("Wizard"))
+        {
+            imageHost.setImage(resourceManagement.wizard);
+            imageHost.setFitHeight(150);
+            imageHost.setFitWidth(200);
+        }
+        else if(Host.character==User.Character.valueOf("Dancer"))
+        {
+            imageHost.setImage(resourceManagement.dancer);
+            imageHost.setFitHeight(150);
+            imageHost.setFitWidth(200);
+        }
+        if(Guest.character==User.Character.valueOf("Gunner"))
+        {
+            imageGuest.setImage(resourceManagement.gunner);
+            imageGuest.setFitHeight(150);
+            imageGuest.setFitWidth(200);
+        }
+        else if(Guest.character==User.Character.valueOf("Fighter"))
+        {
+            imageGuest.setImage(resourceManagement.fighter);
+            imageGuest.setFitHeight(150);
+            imageGuest.setFitWidth(200);
+        }
+        else if(Guest.character==User.Character.valueOf("Wizard"))
+        {
+            imageGuest.setImage(resourceManagement.wizard);
+            imageGuest.setFitHeight(150);
+            imageGuest.setFitWidth(200);
+        }
+        else if(Host.character==User.Character.valueOf("Dancer"))
+        {
+            imageHost.setImage(resourceManagement.dancer);
+            imageHost.setFitHeight(150);
+            imageHost.setFitWidth(200);
+        }
+    }
 }
-//150*sqrt(x)
-//150*xp^2

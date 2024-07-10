@@ -21,7 +21,7 @@ public class GameController {
     static public int round;
     static boolean finish=false;
     public boolean UsersReady = false;
-    public static void run(User host,User Guest) {
+    public void run(User host,User Guest) {
         host1=host;
         quest1=Guest;
         round = 4;

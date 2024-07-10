@@ -63,7 +63,7 @@ public class SceneController {
     }
     public static void switchtoGame() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("game.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 938, 536);
         stage.setTitle("Chert-O-Pert!");
         stage.setScene(scene);
         stage.show();
