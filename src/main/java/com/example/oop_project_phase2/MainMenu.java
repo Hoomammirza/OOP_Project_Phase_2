@@ -119,4 +119,7 @@ public class MainMenu {
     public void logout(){
         SceneController.switchtoMenuselect();
     }
+    public void Settings() throws IOException {
+        SceneController.switchtoSettings();
+    }
 }

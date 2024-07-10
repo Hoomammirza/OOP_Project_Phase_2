@@ -166,7 +166,7 @@ public class ProfileMenu {
         if (!Users.ExistUsername(username)){
             SQLhandler.changeUsername(Users.LoginUser,username);
         }else {
-            System.out.println("a user with this username already exists!");
+            error.setText("a user with this username already exists!");
         }
     }
     public void Changeemail(){
@@ -174,7 +174,7 @@ public class ProfileMenu {
         if (signup.verifyEmail(Email)){
             SQLhandler.changeEmail(Users.LoginUser,Email);
         }else {
-            System.out.println("email is invalid!");
+            error.setText("email is invalid!");
         }
     }
     public void Changenickname(){
@@ -198,15 +198,15 @@ public class ProfileMenu {
                 String captchaanswer = new Scanner(System.in).nextLine();
                 if (captcha.equals(captchaanswer)) {
                     SQLhandler.changePassword(user.Username,newpassword);
-                    System.out.println("Password changed successfully!");
+                    error.setText("Password changed successfully!");
                 } else {
-                    System.out.println("captcha failed!");
+                    error.setText("captcha failed!");
                 }
             }else {
-                System.out.println("New password can't be the same as old password");
+                error.setText("New password can't be the same as old password");
             }
         }else {
-            System.out.println("Current password is incorrect!");
+            error.setText("Current password is incorrect!");
         }
     }
     public void back() throws IOException {

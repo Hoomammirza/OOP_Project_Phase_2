@@ -21,13 +21,44 @@ public class resourceManagement {
     public static Image cell,wall;
     public static double musicvolume = 0.5;
     public static Media RangoMusic;
+    public static Media PiratesMusic;
     public static MediaPlayer MusicPlayer;
+    public static Music currentmusic = Music.Rango;
     public static void load() throws MalformedURLException {
         RangoMusic = new Media(new File("src/main/resources/com/example/oop_project_phase2/Y2meta.app - Walk Don't Rango (128 kbps).mp3").toURI().toURL().toString());
+        PiratesMusic = new Media(new File("src/main/resources/com/example/oop_project_phase2/Main Theme - Pirates of the Caribbean.mp3").toURI().toURL().toString());
         MusicPlayer = new MediaPlayer(RangoMusic);
-        MusicPlayer.setVolume(musicvolume);
+        MusicPlayer.setVolume(musicvolume*0.5);
         MusicPlayer.setCycleCount(Integer.MAX_VALUE);
         MusicPlayer.play();
+    }
+    public static void setMusic(String string){
+        switch (Music.valueOf(string)){
+            case Rango:
+                if (currentmusic != Music.Rango) {
+                    currentmusic = Music.Rango;
+                    MusicPlayer.stop();
+                    MusicPlayer = new MediaPlayer(RangoMusic);
+                    MusicPlayer.setVolume(musicvolume * 0.5);
+                    MusicPlayer.setCycleCount(Integer.MAX_VALUE);
+                    MusicPlayer.play();
+                }
+                break;
+            case Pirates:
+                if (currentmusic != Music.Pirates) {
+                    currentmusic = Music.Pirates;
+                    MusicPlayer.stop();
+                    MusicPlayer = new MediaPlayer(PiratesMusic);
+                    MusicPlayer.setVolume(musicvolume * 0.5);
+                    MusicPlayer.setCycleCount(Integer.MAX_VALUE);
+                    MusicPlayer.play();
+                }
+                break;
+        }
+    }
+    public static void setMusicvolume(double volume){
+        musicvolume = volume;
+        MusicPlayer.setVolume(volume*0.5);
     }
     static {
         try {
@@ -45,7 +76,7 @@ public class resourceManagement {
             thermalsuppresion=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/thermalSuppresion.jpg").toURI().toURL().toString());
             earlypercision=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/earlyPercision.jpg").toURI().toURL().toString());
             acidcleanser=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/acid_cleanser.jpg").toURI().toURL().toString());
-           hallstorm=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/hallStorm.png").toURI().toURL().toString());
+            hallstorm=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/hallStorm.png").toURI().toURL().toString());
             advancedfusion=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/advanced_fusion.jpg").toURI().toURL().toString());
             bulletflurry=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/bullet_fudion.jpg").toURI().toURL().toString());
             MBsilencer=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/Mb_silencer.jpg").toURI().toURL().toString());
@@ -139,5 +170,8 @@ public class resourceManagement {
                 return multifire;
         }
         return null;
+    }
+    public enum Music{
+        Rango,Pirates;
     }
 }

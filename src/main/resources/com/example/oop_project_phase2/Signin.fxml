@@ -104,9 +104,9 @@
             </HBox>
          </children>
       </VBox>
-      <Text layoutX="115.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spotify">
+      <Text layoutX="34.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chert-O-Pert">
          <font>
-            <Font name="Algerian" size="96.0" />
+            <Font name="Algerian" size="79.0" />
          </font>
       </Text>
       <Button alignment="CENTER" layoutX="252.0" layoutY="455.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="97.0" text="Back" />

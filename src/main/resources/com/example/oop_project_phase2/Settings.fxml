@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.Settings">
+   <children>
+      <VBox alignment="CENTER" layoutX="116.0" layoutY="119.0" prefHeight="310.0" prefWidth="370.0">
+         <children>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Music volume:     ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Slider fx:id="volumeslider" max="1.0" onMouseDragged="#drag" value="0.5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="115.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Music:     ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="Musicchoicebox" onAction="#Changemusic"  prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="165.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme:     ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="Themechoicebox" onDragDetected="#Changemusic" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="35.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chert-O-Pert">
+         <font>
+            <Font name="Algerian" size="79.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" layoutX="242.0" layoutY="460.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="118.0" text="Back" />
+   </children>
+</AnchorPane>
