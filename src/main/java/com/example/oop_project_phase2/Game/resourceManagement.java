@@ -6,16 +6,16 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 
 public class resourceManagement {
-    public static Image cell1;
-    public static ImageView cell;
-    static {
-        try {
-            Image cell1 = new Image(new File(""));
-            imagesinger1.setImage(image);
-        }
-        catch (Exception e)
-        {
-
-        }
-    }
+//    public static Image cell1;
+//    public static ImageView cell;
+//    static {
+//        try {
+//            Image cell1 = new Image(new File(""));
+//            imagesinger1.setImage(image);
+//        }
+//        catch (Exception e)
+//        {
+//
+//        }
+//    }
 }

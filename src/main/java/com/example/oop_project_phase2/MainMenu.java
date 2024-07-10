@@ -107,8 +107,8 @@ public class MainMenu {
     public void Shop(){
 
     }
-    public void History(){
-
+    public void History() throws IOException {
+        SceneController.switchtoHistory();
     }
     public void SGno() throws IOException {
         Gameinit.wager = false;
