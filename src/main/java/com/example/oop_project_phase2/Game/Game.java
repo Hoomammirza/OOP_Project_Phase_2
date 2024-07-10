@@ -40,12 +40,14 @@ public class Game {
     Label hostname,guestname;
     @FXML
     AnchorPane Root;
+    @FXML
+    Label hitpointGuest,hitpointHost;
     public void initialize(){
         setTableGame();
-        GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
         startHand();
         GameController.init(Gameinit.Host,Gameinit.Guest);
+        changeGraphicElement(Gameinit.Host,Gameinit.Guest);
     }
     static Scanner input=new Scanner(System.in);
 //    public static void timelineInputOutput(User Host,User Guest){
@@ -438,12 +440,14 @@ public class Game {
                      int n = (int)((int)(mouseEvent.getSceneX()-8)/43.905);{
                          if (GameController.host2.hand.get(temp).feature == null){
                              TimelineController.setCardInGameWithSpace(GameController.host2,GameController.quest2,temp,n);
+
                          }else if (GameController.host2.hand.get(temp).feature.equals("duplicator")){
                              TimelineController.SetDuplicator(GameController.host2,GameController.quest2,temp,n);
                          }else {
                              TimelineController.setCardInGameWithNoSpace(GameController.host2,GameController.quest2,temp);
                          }
                          Game.showHand(GameController.host2,GameController.quest2);
+                         setTimLineImage(GameController.host2,GameController.quest2);
                      }
                  }
              }
@@ -461,4 +465,48 @@ public class Game {
             handguest.add(handGuestInformation[i],i,0);
         }
     }
+    public void changeGraphicElement(User Host,User Guest)
+    {
+        setCharacter(Host,Guest);
+        showHand(Host,Guest);
+        guestname.setText(Guest.Nickname);
+        hostname.setText(Host.Nickname);
+        hitpointGuest.setText(String.valueOf(Guest.hitpoint));
+        hitpointHost.setText(String.valueOf(Host.hitpoint));
+    }
+    public void setTimLineImage(User host,User guest)
+    {
+        for(int i=0;i<21;i++)
+        {
+            if(host.timeline[i]!=null)
+            {
+                if(!Objects.equals(host.timeline[i].name, "empty"))
+                {
+                    cardImage[1][i].setImage(resourceManagement.getImageCard(host.timeline[i].name));
+                }
+                else if(host.timeline[i].cardReference!=null)
+                {
+                    cardImage[1][i].setImage(resourceManagement.getImageCard(host.timeline[i].cardReference.name));
+                }
+            }
+        }
+        for (int i=0;i<21;i++)
+        {
+            if(guest.timeline[i]!=null)
+            {
+                if(!Objects.equals(guest.timeline[i].name, "empty"))
+                {
+                    cardImage[0][i].setImage(resourceManagement.getImageCard(guest.timeline[i].name));
+                }
+                else if(guest.timeline[i].cardReference!=null)
+                {
+                    cardImage[0][i].setImage(resourceManagement.getImageCard(guest.timeline[i].cardReference.name));
+                }
+            }
+        }
+    }
 }
+//(8+43.905*n,8+43.905*(n+1)),(206,281.5)
+//(8+43.905*n,8+43.905*(n+1)),(281.5,357)
+//395,400
+//554,119

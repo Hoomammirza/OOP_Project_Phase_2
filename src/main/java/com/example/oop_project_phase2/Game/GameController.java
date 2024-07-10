@@ -6,6 +6,7 @@ import com.example.oop_project_phase2.UserManagement.PasswordExeption;
 import com.example.oop_project_phase2.UserManagement.SQLhandler;
 import com.example.oop_project_phase2.UserManagement.User;
 import com.example.oop_project_phase2.card.Card;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -301,8 +302,10 @@ public class GameController {
         Random random=new Random();
         int a=random.nextInt(21);
         host.timeline[a]=new Card("empty",0,0,0,0,0,null,null,0);
+        Game.cardImage[0][a].setImage(resourceManagement.wall);
         a=random.nextInt(21);
         Guest.timeline[a]=new Card("empty",0,0,0,0,0,null,null,0);
+        Game.cardImage[1][a].setImage(resourceManagement.wall);
     }
     public static boolean whoStart()
     {
