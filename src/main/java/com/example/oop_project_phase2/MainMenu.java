@@ -105,7 +105,6 @@ public class MainMenu {
         SceneController.switchtoProfile();
     }
     public void Shop(){
-
     }
     public void History() throws IOException {
         SceneController.switchtoHistory();
