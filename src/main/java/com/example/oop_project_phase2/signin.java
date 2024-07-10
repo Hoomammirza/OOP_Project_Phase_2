@@ -1,7 +1,6 @@
 package com.example.oop_project_phase2;
 
 
-import com.example.oop_project_phase2.Misc.Misc;
 import com.example.oop_project_phase2.UserManagement.*;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
@@ -11,9 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
-import java.util.EventListener;
+import java.io.IOException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
 
 public class signin {
     static Scanner input = new Scanner(System.in);
@@ -40,7 +38,7 @@ public class signin {
     @FXML
     HBox Textbox;
     @FXML
-    HBox SQQbox;
+    HBox SQselect;
     @FXML
     HBox SQAbox;
     @FXML
@@ -119,9 +117,26 @@ public class signin {
                 }
             }
         };
+        errorbox.toBack();
+        Controlbox.toBack();
+        Passwordbox.toBack();
+        Usernamebox.toBack();
+        NewPasswordbox.setDisable(true);
+        NewPasswordbox.setVisible(false);
+        Textbox.setDisable(true);
+        Textbox.setVisible(false);
+        SQselect.setDisable(true);
+        SQselect.setVisible(false);
+        SQAbox.setDisable(true);
+        SQAbox.setVisible(false);
+        NewPasswordbox.setDisable(true);
+        NewPasswordbox.setVisible(false);
+        Controlbox1.setDisable(true);
+        Controlbox1.setVisible(false);
+
     }
 
-    public void signaction(){
+    public void signaction() throws IOException {
         try {
             Users.signin(Username.getText(), Password.getText());
             SceneController.switchtoMainMenu();
@@ -130,9 +145,11 @@ public class signin {
             errortext.setText("Username doesn’t exist!");
         } catch (PasswordExeption e) {
             String s = e.toString();
+            animationTimer.start();
             errortext.setText("Password and Username don’t match!");
         } catch (TimerException e){
             String s = e.toString();
+            animationTimer.start();
         }
     }
     public void ForgetPassword(){
@@ -168,7 +185,7 @@ public class signin {
         }
     }
     public void back(){
-        SceneController.switchtoMainMenu();
+        SceneController.switchtoMenuselect();
     }
     public void ForgotPasswordCheck(){
         if (isNewUser.isSelected()){
@@ -177,8 +194,8 @@ public class signin {
             NewPasswordbox.setVisible(true);
             Textbox.setDisable(false);
             Textbox.setVisible(true);
-            SQQbox.setDisable(false);
-            SQQbox.setVisible(true);
+            SQselect.setDisable(false);
+            SQselect.setVisible(true);
             SQAbox.setDisable(false);
             SQAbox.setVisible(true);
             NewPasswordbox.setDisable(false);
@@ -195,8 +212,8 @@ public class signin {
             NewPasswordbox.setVisible(false);
             Textbox.setDisable(true);
             Textbox.setVisible(false);
-            SQQbox.setDisable(true);
-            SQQbox.setVisible(false);
+            SQselect.setDisable(true);
+            SQselect.setVisible(false);
             SQAbox.setDisable(true);
             SQAbox.setVisible(false);
             NewPasswordbox.setDisable(true);

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.MainMenu">
+   <children>
+      <VBox layoutX="148.0" layoutY="210.0" prefHeight="72.0" prefWidth="305.0">
+         <children>
+            <HBox alignment="CENTER" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#SGno" text="Start Game normal mode" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#SGwa" text="Start Game wager mode" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Shop" text="Shop" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#History" text="Game History" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="35.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chert-O-Pert">
+         <font>
+            <Font name="Algerian" size="79.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" layoutX="242.0" layoutY="460.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="118.0" text="Logout" />
+      <Text fx:id="Level" layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level : 2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="XP" layoutX="13.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XP : 0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="Coins" layoutX="12.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins : 0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="21.0" layoutY="225.0" mnemonicParsing="false" onAction="#Profile" text="Profile" />
+   </children>
+</AnchorPane>

@@ -28,7 +28,7 @@ public class SQLhandler {
                 rs = statement.executeQuery();
                 if (rs.next()){
                     if (rs.getString("Password").equals(password)){
-                        User user = new User(rs.getString("Username"),rs.getString("Password"),rs.getString("Nickname"),rs.getString("Email"),rs.getString("SecurityQ"),rs.getString("SecurityQA"),rs.getBoolean("isAdmin"),rs.getInt("Level"),rs.getInt("Coins"),rs.getInt("XP"));
+                        User user = new User(rs.getString("Username"),rs.getString("Password"),rs.getString("Nickname"),rs.getString("Email"),rs.getString("SecurityQ"),rs.getString("SecurityQA"),rs.getBoolean("isAdmin"),rs.getInt("Level"),rs.getInt("Coins"),rs.getInt("XP"),rs.getBoolean("isFirst"));
                         user.cards = getUsercards(user);
                         return user;
                     }else throw new PasswordExeption();
@@ -43,9 +43,8 @@ public class SQLhandler {
         try {
             if (isConnected) {
                 statement = con.createStatement();
-                statement.executeUpdate("update user set Level = "+user.Level+",Coins = "+user.Coins+",XP = "+user.XP+" where Username = '"+user.Username+"';");
+                statement.executeUpdate("update user set Level = "+user.Level+",Coins = "+user.Coins+",XP = "+user.XP+",isFirst = false where Username = '"+user.Username+"';");
             }
-
         } catch (SQLException e){System.out.println(e);}
     }
     public static boolean Userexists(String username){
@@ -110,7 +109,7 @@ public class SQLhandler {
         Statement statement;
         try {
             statement = con.createStatement();
-            statement.execute("insert into user (Username,Password,Nickname,Email,SecurityQ,SecurityQA,isAdmin,Coins,Level,XP) VALUES ('"+user.Username+"','"+user.Password+"','"+user.Nickname+"','"+user.Email+"','"+user.SecurityQ.toString()+"','"+user.SecurityQA+"',"+0+",100,1,0);");
+            statement.execute("insert into user (Username,Password,Nickname,Email,SecurityQ,SecurityQA,isAdmin,Coins,Level,XP,isFirst) VALUES ('"+user.Username+"','"+user.Password+"','"+user.Nickname+"','"+user.Email+"','"+user.SecurityQ.toString()+"','"+user.SecurityQA+"',"+0+",100,1,0,1);");
             for (Card card:user.cards){
                 giveCard(card,user,1);
             }

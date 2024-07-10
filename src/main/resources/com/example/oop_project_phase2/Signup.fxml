@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.signup">
+   <children>
+      <VBox layoutX="123.0" layoutY="120.0" prefHeight="72.0" prefWidth="305.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:    " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Username" promptText="enter your username" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:           " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Email" promptText="enter your username" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:    " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Nickname" promptText="enter your username" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:     " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Password" promptText="enter your password" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password confirmation:" textAlignment="CENTER">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="Passwordc" minWidth="220.0" prefWidth="300.0" promptText="enter your password" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose one of the question below:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <ChoiceBox fx:id="SQChoice" prefHeight="20.0" prefWidth="800.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:        " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="SQA" promptText="enter your answer" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text fx:id="Captcha" strokeType="OUTSIDE" strokeWidth="0.0" text="2+2=" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="46.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Captcha Answer:        " textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="Captchaanswer" promptText="enter your answer" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Text fx:id="errortext" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="error" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="35.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chert-O-Pert">
+         <font>
+            <Font name="Algerian" size="79.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" layoutX="123.0" layoutY="539.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="97.0" text="Back" />
+      <Button alignment="CENTER" layoutX="380.0" layoutY="539.0" mnemonicParsing="false" onAction="#Signup" prefHeight="25.0" prefWidth="97.0" text="Signup" />
+      <Button alignment="CENTER" layoutX="242.0" layoutY="539.0" mnemonicParsing="false" onAction="#RandomPassword" prefHeight="25.0" prefWidth="118.0" text="Random Password" />
+   </children>
+</AnchorPane>

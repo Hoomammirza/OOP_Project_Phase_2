@@ -69,15 +69,14 @@
                   </Text>
                </children>
             </HBox>
-            <HBox fx:id="SQQbox" alignment="CENTER" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
+            <HBox fx:id="SQselect" alignment="CENTER" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
                <children>
-                  <Text fx:id="SQ" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Text fx:id="SQ" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
-               </children>
-            </HBox>
+               </children></HBox>
             <HBox fx:id="SQAbox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Answer:        " textAlignment="CENTER">

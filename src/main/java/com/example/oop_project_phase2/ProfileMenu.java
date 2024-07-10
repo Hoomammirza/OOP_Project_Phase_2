@@ -123,19 +123,6 @@ public class ProfileMenu {
                     return;
                 }
                 String captcha = signup.getrandomcaptcha();
-                ArrayList<String> captchashow = signup.showRandomCaptcha(captcha);
-                for (int i = 0; i < captcha.length(); i++) {
-                    Random random = new Random(System.currentTimeMillis());
-                    for (int j = 0; j < 40; j++) {
-                        int k = random.nextInt(captcha.length() * (12) - 3);
-                        int m = random.nextInt(8);
-                        captchashow.set(m, captchashow.get(m).substring(0, k) + 'A' + captchashow.get(m).substring(k + 1));
-                    }
-                }
-                    System.out.println("please write the numbers you see on screen:");
-                for (int j = 0; j < 8; j++) {
-                    System.out.println(captchashow.get(j));
-                }
                 String captchaanswer = new Scanner(System.in).nextLine();
                 if (captcha.equals(captchaanswer)) {
                     SQLhandler.changePassword(user.Username,newpassword);
