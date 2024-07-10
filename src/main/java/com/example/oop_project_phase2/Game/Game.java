@@ -24,7 +24,11 @@ public class Game {
     @FXML
     static ImageView [] handhostImage=new ImageView[6];
     @FXML
+    static Label [] handhostInformation=new Label[6];
+    @FXML
     static ImageView [] handGuestImage=new ImageView[6];
+    @FXML
+    static Label [] handGuestInformation=new Label[6];
     @FXML
     ImageView imageHost,imageGuest;
     @FXML
@@ -371,35 +375,43 @@ public class Game {
         for(int i=0;i<Host.hand.size();i++)
         {
             handhostImage[i].setImage(resourceManagement.getImageCard(Host.hand.get(i).name));
+            handhostInformation[i].setText(Host.hand.get(i).defence_attack+"/"+Host.hand.get(i).playerDamage+"/"+Host.hand.get(i).Duration);
         }
         for (int i=Host.hand.size();i<6;i++)
         {
             handhostImage[i].setImage(resourceManagement.wall);
+            handhostInformation[i].setText("");
         }
         for(int i=0;i<Guest.hand.size();i++)
         {
             handGuestImage[i].setImage(resourceManagement.getImageCard(Guest.hand.get(i).name));
+            handGuestInformation[i].setText(Guest.hand.get(i).defence_attack+"/"+Guest.hand.get(i).playerDamage+"/"+Guest.hand.get(i).Duration);
         }
         for (int i=Guest.hand.size();i<6;i++)
         {
             handGuestImage[i].setImage(resourceManagement.wall);
+            handGuestInformation[i].setText("");
         }
     }
     public void startHand()
     {
         for(int i=0;i<6;i++)
         {
+            handhostInformation[i]=new Label();
          handhostImage[i]=new ImageView(resourceManagement.wall);
          handhostImage[i].setFitWidth(86);
          handhostImage[i].setFitHeight(89);
          handhost.add(handhostImage[i],i,1);
+         handhost.add(handhostInformation[i],i,0);
         }
         for(int i=0;i<6;i++)
         {
+            handGuestInformation[i]=new Label();
             handGuestImage[i]=new ImageView(resourceManagement.wall);
             handGuestImage[i].setFitWidth(86);
             handGuestImage[i].setFitHeight(89);
             handguest.add(handGuestImage[i],i,1);
+            handguest.add(handGuestInformation[i],i,0);
         }
     }
 }
