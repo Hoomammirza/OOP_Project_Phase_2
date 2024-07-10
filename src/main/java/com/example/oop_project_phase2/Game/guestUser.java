@@ -88,7 +88,6 @@ public class guestUser {
         catch (Exception e) {
             coinException.setText("please set the Number");
         }
-        setCoin=false;
     }
     public void initialize()
     {
