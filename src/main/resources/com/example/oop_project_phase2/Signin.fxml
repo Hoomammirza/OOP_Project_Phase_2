@@ -104,7 +104,7 @@
             </HBox>
          </children>
       </VBox>
-      <Text layoutX="34.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chert-O-Pert">
+      <Text layoutX="56.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rural wars">
          <font>
             <Font name="Algerian" size="79.0" />
          </font>
