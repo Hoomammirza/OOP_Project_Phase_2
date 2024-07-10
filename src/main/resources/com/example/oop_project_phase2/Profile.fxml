@@ -22,7 +22,7 @@
                      </font>
                   </Text>
                   <TextField fx:id="Username" />
-                  <Button mnemonicParsing="false" onAction="#Changeusername" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#Changeusername" text="Apply" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
@@ -33,7 +33,7 @@
                      </font>
                   </Text>
                   <TextField fx:id="Email" />
-                  <Button mnemonicParsing="false" onAction="#Changeemail" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#Changeemail" text="Apply" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
@@ -44,7 +44,7 @@
                      </font>
                   </Text>
                   <TextField fx:id="Nickname" />
-                  <Button mnemonicParsing="false" onAction="#Changenickname" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#Changenickname" text="Apply" />
                </children>
             </HBox>
             <HBox fx:id="Passwordbox1" alignment="CENTER" layoutX="10.0" layoutY="50.0" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
@@ -55,7 +55,6 @@
                      </font>
                   </Text>
                   <TextField fx:id="Opassword" />
-                  <CheckBox fx:id="PasswordCheckbox" mnemonicParsing="false" onAction="#PasswordCheck" prefHeight="34.0" prefWidth="80.0" text="Change Password ?" wrapText="true" />
                </children>
             </HBox>
             <HBox fx:id="Passwordbox2" alignment="CENTER" maxHeight="50.0" minHeight="40.0" prefHeight="50.0" prefWidth="200.0">
@@ -115,5 +114,6 @@
          </font>
       </Text>
       <Button alignment="CENTER" layoutX="242.0" layoutY="460.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="118.0" text="Back" />
+      <CheckBox fx:id="PasswordCheckbox" layoutX="455.0" layoutY="245.0" mnemonicParsing="false" onAction="#PasswordCheck" prefHeight="34.0" prefWidth="80.0" text="Change Password?" wrapText="true" />
    </children>
 </AnchorPane>

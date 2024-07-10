@@ -104,6 +104,7 @@ public class ProfileMenu {
 
     public int answer;
     public void initialize(){
+        User user = Users.LoginUser;
         answer = getcaptcha();
         Captchabox.setDisable(true);
         Captchabox.setVisible(false);
@@ -114,6 +115,10 @@ public class ProfileMenu {
         Coins.setText("Coins: "+Users.LoginUser.Coins+"   ");
         XP.setText("XP: "+Users.LoginUser.XP+"   ");
         Level.setText("Level: "+Users.LoginUser.Level+"   ");
+        Username.setText(user.Username);
+        Nickname.setText(user.Nickname);
+        Email.setText(user.Email);
+        Username.setText(user.Username);
     }
     public void PasswordCheck(){
         if (PasswordCheckbox.isSelected()){

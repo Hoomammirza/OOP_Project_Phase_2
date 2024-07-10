@@ -101,8 +101,8 @@ public class MainMenu {
 //                    "level:  "+Users.LoginUser.cards.get(i).level);
 //        }
 //    }
-    public void Profile(){
-
+    public void Profile() throws IOException {
+        SceneController.switchtoProfile();
     }
     public void Shop(){
 

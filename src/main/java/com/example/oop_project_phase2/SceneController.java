@@ -75,4 +75,11 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    public static void switchtoProfile() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Profile.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        stage.setTitle("Chert-O-Pert!");
+        stage.setScene(scene);
+        stage.show();
+    }
 }
