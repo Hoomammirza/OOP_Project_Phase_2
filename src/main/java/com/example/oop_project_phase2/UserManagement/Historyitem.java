@@ -119,21 +119,21 @@ public class Historyitem {
         HostXPp.setValue(HostXP);
     }
 
-    public String print() {
-        String result = "";
-        if (Users.LoginUser.Username.equals(Host)){
-            result += date.toString() + "\t";
-            result += time.toString() + "\t";
-            result += Hostwin + "\t";
-            result += Guest + "\t" + Guestlevel +"\t";
-            result += HostCoin + "\t" + HostXP + "\t";
-        }else {
-            result += date.toString() + "\t";
-            result += time.toString() + "\t";
-            result += Guestwin + "\t";
-            result += Host + "\t" + Hostlevel +"\t";
-            result += GuestCoin + "\t" + GuestXP + "\t";
-        }
-        return result;
-    }
+//    public String print() {
+//        String result = "";
+//        if (Users.LoginUser.Username.equals(Host)){
+//            result += date.toString() + "\t";
+//            result += time.toString() + "\t";
+//            result += Hostwin + "\t";
+//            result += Guest + "\t" + Guestlevel +"\t";
+//            result += HostCoin + "\t" + HostXP + "\t";
+//        }else {
+//            result += date.toString() + "\t";
+//            result += time.toString() + "\t";
+//            result += Guestwin + "\t";
+//            result += Host + "\t" + Hostlevel +"\t";
+//            result += GuestCoin + "\t" + GuestXP + "\t";
+//        }
+//        return result;
+//    }
 }

@@ -109,7 +109,7 @@
             </HBox>
             <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="354.0">
                <children>
-                  <Text fx:id="errortext" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="error" textAlignment="CENTER">
+                  <Text fx:id="errortext" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -35,69 +35,68 @@ public class Game {
         GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
         startHand();
-        GameController.run(Gameinit.Host,Gameinit.Guest);
+        GameController.init(Gameinit.Host,Gameinit.Guest);
     }
     static Scanner input=new Scanner(System.in);
-    public static void timelineInputOutput(User Host,User Guest){
-        boolean exit=false;
-        String in;
-        while (!exit)
-        {
-            System.out.println("command: \n"+
-                    "show game information"+"\n"
-                    +"-select card number <n> player <x>"+"\n"
-                    +"-placing card number <n>"+"\n"
-                    +"-placing card number <n> to copy <i>"+"\n"
-                    +"-placing card number <n> in block <i>");
-            in=input.nextLine();
-            Matcher showInformation=Misc.getMatcher(in, "show game information");
-            Matcher showCardInformation=Misc.getMatcher(in, "^select card number (?<n>\\S+) player (?<x>\\S+)");
-            Matcher selectCardWithSpace=Misc.getMatcher(in, "^placing card number (?<n>\\S+) in block (?<i>\\S+)");
-            Matcher selectCardWithNoSpace=Misc.getMatcher(in, "^placing card number (?<n>\\S+)");
-            Matcher selectDuplicateCard=Misc.getMatcher(in, "^placing card number (?<n>\\S+) to copy (?<i>\\S+)");
-            if(showInformation.find())
-            {
-                showGameInformation(Host,Guest);
-            }
-            else if(showCardInformation.find())
-            {
-                int n=Integer.parseInt(showCardInformation.group("n"));
-                String x=showCardInformation.group("x");
-                showInformationCard(Host,Guest,n-1,x);
-            }
-            else if(selectCardWithSpace.find())
-            {
-                int n=Integer.parseInt(selectCardWithSpace.group("n"));
-                int i=Integer.parseInt(selectCardWithSpace.group("i"));
-                if(TimelineController.setCardInGameWithSpace(Host,Guest,n-1,i-1))
-                {
-                    exit=true;
-                }
-
-            }
-            else if(selectDuplicateCard.find())
-            {
-                int n=Integer.parseInt(selectDuplicateCard.group("n"));
-                int i=Integer.parseInt(selectDuplicateCard.group("i"));
-                if(TimelineController.SetDuplicator(Host,Guest,n-1,i-1))
-                {
-                    exit=true;
-                }
-            }
-            else if(selectCardWithNoSpace.find())
-            {
-                int n=Integer.parseInt(selectCardWithNoSpace.group("n"));
-                if(TimelineController.setCardInGameWithNoSpace(Host,Guest,n-1))
-                {
-                    exit=true;
-                }
-            }
-            else
-            {
-                System.out.println("Incorrect command");
-            }
-        }
-    }
+//    public static void timelineInputOutput(User Host,User Guest){
+//        boolean exit=false;
+//        String in;
+//        while (!exit)
+//        {
+//            System.out.println("command: \n"+
+//                    "show game information"+"\n"
+//                    +"-select card number <n> player <x>"+"\n"
+//                    +"-placing card number <n>"+"\n"
+//                    +"-placing card number <n> to copy <i>"+"\n"
+//                    +"-placing card number <n> in block <i>");
+//            in=input.nextLine();
+//            Matcher showInformation=Misc.getMatcher(in, "show game information");
+//            Matcher showCardInformation=Misc.getMatcher(in, "^select card number (?<n>\\S+) player (?<x>\\S+)");
+//            Matcher selectCardWithSpace=Misc.getMatcher(in, "^placing card number (?<n>\\S+) in block (?<i>\\S+)");
+//            Matcher selectCardWithNoSpace=Misc.getMatcher(in, "^placing card number (?<n>\\S+)");
+//            Matcher selectDuplicateCard=Misc.getMatcher(in, "^placing card number (?<n>\\S+) to copy (?<i>\\S+)");
+//            if(showInformation.find())
+//            {
+//                showGameInformation(Host,Guest);
+//            }
+//            else if(showCardInformation.find())
+//            {
+//                int n=Integer.parseInt(showCardInformation.group("n"));
+//                String x=showCardInformation.group("x");
+//                showInformationCard(Host,Guest,n-1,x);
+//            }
+//            else if(selectCardWithSpace.find())
+//            {
+//                int n=Integer.parseInt(selectCardWithSpace.group("n"));
+//                int i=Integer.parseInt(selectCardWithSpace.group("i"));
+//                if(TimelineController.setCardInGameWithSpace(Host,Guest,n-1,i-1))
+//                {
+//                    exit=true;
+//                }
+//            }
+//            else if(selectDuplicateCard.find())
+//            {
+//                int n=Integer.parseInt(selectDuplicateCard.group("n"));
+//                int i=Integer.parseInt(selectDuplicateCard.group("i"));
+//                if(TimelineController.SetDuplicator(Host,Guest,n-1,i-1))
+//                {
+//                    exit=true;
+//                }
+//            }
+//            else if(selectCardWithNoSpace.find())
+//            {
+//                int n=Integer.parseInt(selectCardWithNoSpace.group("n"));
+//                if(TimelineController.setCardInGameWithNoSpace(Host,Guest,n-1))
+//                {
+//                    exit=true;
+//                }
+//            }
+//            else
+//            {
+//                System.out.println("Incorrect command");
+//            }
+//        }
+//    }
     public static void showGameInformation(User host,User guest)
     {
         String a="";

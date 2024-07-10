@@ -428,6 +428,5 @@ public class SQLhandler {
             }
         } catch (Exception e){System.out.println(e);}
         return items;
-
     }
 }
