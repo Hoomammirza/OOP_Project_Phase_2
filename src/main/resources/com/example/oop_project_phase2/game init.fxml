@@ -11,7 +11,7 @@
       <Label fx:id="user" layoutY="14.0" prefHeight="62.0" prefWidth="262.0" />
       <ImageView fx:id="gunner" fitHeight="191.0" fitWidth="200.0" layoutX="14.0" layoutY="77.0" onMouseClicked="#gunner" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@CSS/image/gunner.png" />
+            <Image url="@CSS/image/gunner.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="fighter" fitHeight="191.0" fitWidth="192.0" layoutX="216.0" layoutY="77.0" onMouseClicked="#fighter" pickOnBounds="true" preserveRatio="true">
