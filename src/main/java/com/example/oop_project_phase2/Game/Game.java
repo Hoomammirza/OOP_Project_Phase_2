@@ -21,6 +21,7 @@ import java.util.regex.Matcher;
 
 public class Game {
     public static int temp;
+    public static ImageView tempi;
     @FXML
     GridPane tableGame,handhost,handguest;
     @FXML
@@ -410,25 +411,41 @@ public class Game {
              @Override
              public void handle(MouseEvent mouseEvent) {
                  ImageView imageView =  (ImageView) mouseEvent.getSource();
+                 imageView.setLayoutX(0);
+                 imageView.setLayoutY(0);
                  imageView.setX(mouseEvent.getSceneX());
                  imageView.setY(mouseEvent.getSceneY());
              }
          });
-         handhostImage[i].setOnMouseDragEntered(new EventHandler<MouseEvent>() {
+
+         handhostImage[i].setOnMousePressed(new EventHandler<MouseEvent>() {
              @Override
              public void handle(MouseEvent mouseEvent) {
-                 ImageView imageView =  (ImageView) mouseEvent.getSource();
-                 temp = handhost.getChildren().indexOf(imageView);
-                 handhost.getChildren().remove(imageView);
-                 Root.getChildren().add(handhost);
+                 ImageView imageView = (ImageView) mouseEvent.getSource();
+                 tempi = imageView;
+                 System.out.println("hello");
+                 temp = GridPane.getColumnIndex(tempi);
+                 handhost.getChildren().remove(tempi);
+                 Root.getChildren().add(tempi);
              }
          });
-         handhostImage[i].setOnMouseDragExited(new EventHandler<MouseEvent>() {
+         handhostImage[i].setOnMouseReleased(new EventHandler<MouseEvent>() {
              @Override
              public void handle(MouseEvent mouseEvent) {
-                 ImageView imageView =  (ImageView) mouseEvent.getSource();
-                 Root.getChildren().remove(imageView);
-                 handhost.add(imageView,temp,0);
+                 Root.getChildren().removeAll(tempi);
+                 handhost.add(tempi,temp,1);
+                 if (mouseEvent.getSceneY() > 281.5 && mouseEvent.getSceneY() < 357){
+                     int n = (int)((int)(mouseEvent.getSceneX()-8)/43.905);{
+                         if (GameController.host2.hand.get(temp).feature == null){
+                             TimelineController.setCardInGameWithSpace(GameController.host2,GameController.quest2,temp,n);
+                         }else if (GameController.host2.hand.get(temp).feature.equals("duplicator")){
+                             TimelineController.SetDuplicator(GameController.host2,GameController.quest2,temp,n);
+                         }else {
+                             TimelineController.setCardInGameWithNoSpace(GameController.host2,GameController.quest2,temp);
+                         }
+                         Game.showHand(GameController.host2,GameController.quest2);
+                     }
+                 }
              }
          });
          handhost.add(handhostImage[i],i,1);
