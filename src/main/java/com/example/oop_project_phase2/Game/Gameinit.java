@@ -124,4 +124,14 @@ public class Gameinit {
             characterExceotion.setText("first choose your character");
         }
     }
+    public void back()
+    {
+        try {
+            SceneController.switchtoSecondUser();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
 }

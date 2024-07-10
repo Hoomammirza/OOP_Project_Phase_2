@@ -60,7 +60,7 @@ public class guestUser {
             this.username.setEditable(false);
             this.password.setEditable(false);
             loginException.setText(null);
-            if(!(Gameinit.wager))
+            if((Gameinit.wager))
             {
                 coin.setDisable(false);
                 coin.setVisible(true);
@@ -93,11 +93,15 @@ public class guestUser {
     public void initialize()
     {
         guest=null;
+        Gameinit.Guest=null;
+        login=false;
+        setCoin=false;
         if(!(login && Gameinit.wager))
         {
             coin.setDisable(true);
             coin.setVisible(false);
             coinLabel.setDisable(true);
+            coinLabel.setVisible(false);
             coin.setVisible(false);
             wager.setDisable(true);
             wager.setVisible(false);
@@ -116,13 +120,23 @@ public class guestUser {
 
             }
         }
-        else if(setCoin)
+        else if(setCoin || !Gameinit.wager)
         {
             loginException.setText("guest user doesnt login");
         }
         else if(Gameinit.wager && !setCoin)
         {
             coinException.setText("choose coin");
+        }
+    }
+    public void back()
+    {
+        try {
+            SceneController.switchtoMainMenu();
+        }
+        catch (Exception e)
+        {
+
         }
     }
 }
