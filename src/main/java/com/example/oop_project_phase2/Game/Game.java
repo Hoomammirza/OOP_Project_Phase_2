@@ -450,6 +450,7 @@ public class Game {
                                  return;
                          }
                          Game.showHand(GameController.host2,GameController.quest2);
+                         setTimLineImage(GameController.host2,GameController.quest2);
                          GameController.endlittleround();
                          if ((GameController.whoStart && GameController.host2 == GameController.host1)||(!GameController.whoStart && GameController.host2 == GameController.quest1)){
                              GameController.freshhand();
