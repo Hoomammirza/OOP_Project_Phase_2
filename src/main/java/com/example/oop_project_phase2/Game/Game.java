@@ -11,15 +11,20 @@ import javafx.scene.layout.GridPane;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class Game {
     @FXML
-    GridPane tableGame;
+    GridPane tableGame,handhost,handguest;
     @FXML
     ImageView [] [] cardImage=new ImageView[2][21];
+    @FXML
+    ImageView [] handhostImage=new ImageView[6];
+    @FXML
+    ImageView [] handGuestImage=new ImageView[6];
     @FXML
     ImageView imageHost,imageGuest;
     @FXML
@@ -28,6 +33,8 @@ public class Game {
         setTableGame();
         GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
+        GameController.run(Gameinit.Host,Gameinit.Guest);
+        startHand();
     }
     static Scanner input=new Scanner(System.in);
     public static void timelineInputOutput(User Host,User Guest){
@@ -357,6 +364,38 @@ public class Game {
             imageHost.setImage(resourceManagement.dancer);
             imageHost.setFitHeight(150);
             imageHost.setFitWidth(200);
+        }
+    }
+    public  void showHand(User Host,User Guest)
+    {
+        for(int i=0;i<Host.hand.size();i++)
+        {
+            handhostImage[i].setImage(resourceManagement.getImageCard(Host.hand.get(i).name));
+        }
+        for (int i=Host.hand.size();i<6;i++)
+        {
+            handhostImage[i].setImage(resourceManagement.wall);
+        }
+        for(int i=0;i<Guest.hand.size();i++)
+        {
+            handGuestImage[i].setImage(resourceManagement.getImageCard(Guest.hand.get(i).name));
+        }
+        for (int i=Guest.hand.size();i<6;i++)
+        {
+            handGuestImage[i].setImage(resourceManagement.wall);
+        }
+    }
+    public void startHand()
+    {
+        for(int i=0;i<6;i++)
+        {
+         handhostImage[i]=new ImageView(resourceManagement.wall);
+         handhost.add(handhostImage[i],1,i);
+        }
+        for(int i=0;i<6;i++)
+        {
+            handGuestImage[i]=new ImageView(resourceManagement.wall);
+            handguest.add(handGuestImage[i],1,i);
         }
     }
 }

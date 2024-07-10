@@ -21,7 +21,7 @@ public class GameController {
     static public int round;
     static boolean finish=false;
     public boolean UsersReady = false;
-    public void run(User host,User Guest) {
+    public static void run(User host,User Guest) {
         host1=host;
         quest1=Guest;
         round = 4;
@@ -45,6 +45,7 @@ public class GameController {
                 quest1.timeline = new Card[21];
                 emptyCell(host1, quest1);
                 while (round > 0) {
+
                     Game.timelineInputOutput(host1, quest1);
                     Game.timelineInputOutput(quest1, host1);
                     round--;

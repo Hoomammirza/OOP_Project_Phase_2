@@ -18,7 +18,7 @@ public class resourceManagement {
     public static Image rapidFire,shockimpairment,slideswiper,piercerbullet,hiddenshot,thermalsuppresion,earlypercision,acidcleanser;
     public static Image hallstorm,advancedfusion,bulletflurry,MBsilencer,Dissolver,UnshieldableGamma,SideWinder,IONBurst,SniperSupport,SonarStrike;
     public static Image toxicrecoil,HolyHeal,Mover,Scaffholding,Blackhole,TimeGod,Poisonpouch,Duplicator,SmokeBomb,StrengthPosion,shield,multifire;
-    public static Image cell;
+    public static Image cell,wall;
     public static double musicvolume = 0.5;
     public static Media RangoMusic;
     public static MediaPlayer MusicPlayer;
@@ -31,6 +31,7 @@ public class resourceManagement {
     }
     static {
         try {
+            wall=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/wall.png").toURI().toURL().toString());
             cell=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/cell.png").toURI().toURL().toString());
             fighter=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/fighter.png").toURI().toURL().toString());
             gunner=new Image(new File("src/main/resources/com/example/oop_project_phase2/CSS/image/gunner.jpg").toURI().toURL().toString());
@@ -72,7 +73,7 @@ public class resourceManagement {
             System.out.println(e);
         }
     }
-    public Image getImageCard(String name)
+    public static Image getImageCard(String name)
     {
         switch (name)
         {
