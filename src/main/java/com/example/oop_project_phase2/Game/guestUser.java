@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 
 public class guestUser {
     static boolean login=false;
+    static User guest=Gameinit.Guest;
     static boolean setCoin=false;
     @FXML
     Label coinLabel;
@@ -86,10 +87,10 @@ public class guestUser {
             coinException.setText("please set the Number");
         }
         setCoin=false;
-
     }
     public void initialize()
     {
+        guest=null;
         if(!(login && Gameinit.wager))
         {
             coin.setDisable(true);
