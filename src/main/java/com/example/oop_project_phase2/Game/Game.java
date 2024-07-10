@@ -34,8 +34,8 @@ public class Game {
         setTableGame();
         GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
-        GameController.run(Gameinit.Host,Gameinit.Guest);
         startHand();
+        GameController.run(Gameinit.Host,Gameinit.Guest);
     }
     static Scanner input=new Scanner(System.in);
     public static void timelineInputOutput(User Host,User Guest){
