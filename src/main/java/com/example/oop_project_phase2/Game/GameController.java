@@ -22,21 +22,48 @@ public class GameController {
     static boolean finish=false;
     public boolean UsersReady = false;
     public static void run(User host,User Guest) {
-        host1=host;
-        quest1=Guest;
+        host1 = host;
+        quest1 = Guest;
         round = 4;
-        host1.maxHP=User.getMaxHp(host1.Level);
-        quest1.maxHP=User.getMaxHp(quest1.Level);
-        host1.hitpoint=host1.maxHP;
-        quest1.hitpoint=quest1.maxHP;
+        host1.maxHP = User.getMaxHp(host1.Level);
+        quest1.maxHP = User.getMaxHp(quest1.Level);
+        host1.hitpoint = host1.maxHP;
+        quest1.hitpoint = quest1.maxHP;
         preCoinsH = host1.XP;
         preXPH = host1.Coins;
-        preCoinsG =  quest1.Coins;
-        preXPG =  quest1.XP;
-        boolean whoStart=whoStart();
-        if(whoStart)
-        {
-            while (!finish) {
+        preCoinsG = quest1.Coins;
+        preXPG = quest1.XP;
+        boolean whoStart = whoStart();
+        if (whoStart) {
+            host1.comeInHound = new ArrayList<ArrayList<String>>();
+            quest1.comeInHound = new ArrayList<ArrayList<String>>();
+            host1.hand = get5CardHand(host1);
+            quest1.hand = get5CardHand(quest1);
+            host1.timeline = new Card[21];
+            quest1.timeline = new Card[21];
+            emptyCell(host1, quest1);
+            Game.showHand(host1,quest1);
+//                while (round > 0) {
+//                    Game.showHand(host1,quest1);
+//                    Game.timelineInputOutput(host1, quest1);
+//                    Game.timelineInputOutput(quest1, host1);
+//                    round--;
+//                    if (host1.hand.size() < 5 || host1.become6CardInHand || host1.become6CardInHandOneTime) {
+//                        host1.become6CardInHandOneTime = false;
+//                        getNewCardInHand(host1);
+//                    }
+//                    if (quest1.hand.size() < 5 || quest1.become6CardInHand || quest1.become6CardInHandOneTime) {
+//                        getNewCardInHand(quest1);
+//                        quest1.become6CardInHandOneTime = false;
+//                    }
+//
+//                }
+//                attackUser(host1,quest1);
+//                endRound(host1,quest1);
+//            }
+        }
+        else {
+
                 host1.comeInHound = new ArrayList<ArrayList<String>>();
                 quest1.comeInHound = new ArrayList<ArrayList<String>>();
                 host1.hand = get5CardHand(host1);
@@ -44,55 +71,28 @@ public class GameController {
                 host1.timeline = new Card[21];
                 quest1.timeline = new Card[21];
                 emptyCell(host1, quest1);
-                while (round > 0) {
+            Game.showHand(host1,quest1);
+//                while (round > 0) {
+//                    Game.timelineInputOutput(quest1, host1);
+//                    Game.timelineInputOutput(host1, quest1);
+//                    round--;
+//                    if (host1.hand.size() < 5 || host1.become6CardInHand || host1.become6CardInHandOneTime) {
+//                        host1.become6CardInHandOneTime = false;
+//                        getNewCardInHand(host1);
+//                    }
+//                    if (quest1.hand.size() < 5 || quest1.become6CardInHand || quest1.become6CardInHandOneTime) {
+//                        getNewCardInHand(quest1);
+//                        quest1.become6CardInHandOneTime = false;
+//                    }
+//                }
+//                attackUser(host1,quest1);
+//                endRound(host1,quest1);
+//            }
 
-                    Game.timelineInputOutput(host1, quest1);
-                    Game.timelineInputOutput(quest1, host1);
-                    round--;
-                    if (host1.hand.size() < 5 || host1.become6CardInHand || host1.become6CardInHandOneTime) {
-                        host1.become6CardInHandOneTime = false;
-                        getNewCardInHand(host1);
-                    }
-                    if (quest1.hand.size() < 5 || quest1.become6CardInHand || quest1.become6CardInHandOneTime) {
-                        getNewCardInHand(quest1);
-                        quest1.become6CardInHandOneTime = false;
-                    }
-
-                }
-                attackUser(host1,quest1);
-                endRound(host1,quest1);
-            }
+//        endGame(host1,quest1);
+//        SQLhandler.updateUser(host1);
+//        SQLhandler.updateUser(quest1);
         }
-        else
-        {
-            while (!finish) {
-                host1.comeInHound = new ArrayList<ArrayList<String>>();
-                quest1.comeInHound = new ArrayList<ArrayList<String>>();
-                host1.hand = get5CardHand(host1);
-                quest1.hand = get5CardHand(quest1);
-                host1.timeline = new Card[21];
-                quest1.timeline = new Card[21];
-                emptyCell(host1, quest1);
-                while (round > 0) {
-                    Game.timelineInputOutput(quest1, host1);
-                    Game.timelineInputOutput(host1, quest1);
-                    round--;
-                    if (host1.hand.size() < 5 || host1.become6CardInHand || host1.become6CardInHandOneTime) {
-                        host1.become6CardInHandOneTime = false;
-                        getNewCardInHand(host1);
-                    }
-                    if (quest1.hand.size() < 5 || quest1.become6CardInHand || quest1.become6CardInHandOneTime) {
-                        getNewCardInHand(quest1);
-                        quest1.become6CardInHandOneTime = false;
-                    }
-                }
-                attackUser(host1,quest1);
-                endRound(host1,quest1);
-            }
-        }
-        endGame(host1,quest1);
-        SQLhandler.updateUser(host1);
-        SQLhandler.updateUser(quest1);
     }
     public static ArrayList<Card> get5CardHand(User user)
     {

@@ -28,8 +28,8 @@ public class resourceManagement {
         RangoMusic = new Media(new File("src/main/resources/com/example/oop_project_phase2/Y2meta.app - Walk Don't Rango (128 kbps).mp3").toURI().toURL().toString());
         PiratesMusic = new Media(new File("src/main/resources/com/example/oop_project_phase2/Main Theme - Pirates of the Caribbean.mp3").toURI().toURL().toString());
         MusicPlayer = new MediaPlayer(RangoMusic);
-        MusicPlayer.setVolume(musicvolume*0.5);
-        MusicPlayer.setCycleCount(Integer.MAX_VALUE);
+        MusicPlayer.setVolume(0);
+        MusicPlayer.setCycleCount(10);
         MusicPlayer.play();
     }
     public static void setMusic(String string){

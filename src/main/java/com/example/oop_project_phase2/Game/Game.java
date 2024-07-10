@@ -20,16 +20,17 @@ public class Game {
     @FXML
     GridPane tableGame,handhost,handguest;
     @FXML
-    ImageView [] [] cardImage=new ImageView[2][21];
+    static ImageView [] [] cardImage=new ImageView[2][21];
     @FXML
-    ImageView [] handhostImage=new ImageView[6];
+    static ImageView [] handhostImage=new ImageView[6];
     @FXML
-    ImageView [] handGuestImage=new ImageView[6];
+    static ImageView [] handGuestImage=new ImageView[6];
     @FXML
     ImageView imageHost,imageGuest;
     @FXML
     Label hostname,guestname;
     public void initialize(){
+
         setTableGame();
         GameController.emptyCell(Gameinit.Host,Gameinit.Guest);
         setCharacter(Gameinit.Host,Gameinit.Guest);
@@ -366,7 +367,7 @@ public class Game {
             imageHost.setFitWidth(200);
         }
     }
-    public  void showHand(User Host,User Guest)
+    public  static void showHand(User Host,User Guest)
     {
         for(int i=0;i<Host.hand.size();i++)
         {
@@ -390,12 +391,16 @@ public class Game {
         for(int i=0;i<6;i++)
         {
          handhostImage[i]=new ImageView(resourceManagement.wall);
-         handhost.add(handhostImage[i],1,i);
+         handhostImage[i].setFitWidth(86);
+         handhostImage[i].setFitHeight(89);
+         handhost.add(handhostImage[i],i,1);
         }
         for(int i=0;i<6;i++)
         {
             handGuestImage[i]=new ImageView(resourceManagement.wall);
-            handguest.add(handGuestImage[i],1,i);
+            handGuestImage[i].setFitWidth(86);
+            handGuestImage[i].setFitHeight(89);
+            handguest.add(handGuestImage[i],i,1);
         }
     }
 }

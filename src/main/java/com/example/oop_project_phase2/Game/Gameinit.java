@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -92,21 +93,14 @@ public class Gameinit {
         button.setText("select");
 
     }
-    public void change()
-    {
+    public void change() throws IOException {
         if(character2 && character1)
         {
             character1=false;
             character2=false;
             second=false;
             characterExceotion.setText("");
-            try {
-                SceneController.switchtoGame();
-            }
-            catch (Exception e)
-            {
-
-            }
+            SceneController.switchtoGame();
         }
         else if(character1 && second)
         {
