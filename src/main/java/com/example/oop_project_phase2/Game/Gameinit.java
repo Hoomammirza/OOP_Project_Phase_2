@@ -1,6 +1,7 @@
 package com.example.oop_project_phase2.Game;
 
 import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.SceneController;
 import com.example.oop_project_phase2.UserManagement.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,6 +14,8 @@ import java.util.regex.Matcher;
 
 public class Gameinit {
     @FXML
+    Label characterExceotion;
+    @FXML
     Label user;
     @FXML
     Button button;
@@ -24,9 +27,8 @@ public class Gameinit {
     ImageView dancer;
     @FXML
     ImageView wizard;
-    static boolean second=false;
     static boolean character1=false;
-    static boolean character2=false;
+    static boolean character2=false,second=false;
     public static boolean wager;
     public static int wagerint;
     public static User Host=Users.LoginUser;
@@ -92,14 +94,34 @@ public class Gameinit {
     }
     public void change()
     {
-        if(character1)
+        if(character2 && character1)
+        {
+            character1=false;
+            character2=false;
+            second=false;
+            characterExceotion.setText("");
+            try {
+                SceneController.switchtoGame();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+        else if(character1 && second)
+        {
+            characterExceotion.setText("first choose your character");
+        }
+        else if(character1)
         {
             user.setText("user "+Guest.Nickname+" please choose your character");
             button.setText("start game");
+            second=true;
+            characterExceotion.setText("");
         }
-        else if(character2)
+        else
         {
-
+            characterExceotion.setText("first choose your character");
         }
     }
 }

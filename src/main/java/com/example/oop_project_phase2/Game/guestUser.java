@@ -1,6 +1,7 @@
 package com.example.oop_project_phase2.Game;
 
 import com.example.oop_project_phase2.Misc.Misc;
+import com.example.oop_project_phase2.SceneController;
 import com.example.oop_project_phase2.UserManagement.NoUserException;
 import com.example.oop_project_phase2.UserManagement.PasswordExeption;
 import com.example.oop_project_phase2.UserManagement.SQLhandler;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -101,12 +103,26 @@ public class guestUser {
             wager.setVisible(false);
         }
     }
-    public void startGame()
-    {
-        if(setCoin && login)
+    public void startGame(){
+        if((setCoin && login) || (login && !Gameinit.wager))
         {
             login=false;
             setCoin=false;
+            try {
+                SceneController.switchtoGameinit();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+        else if(setCoin)
+        {
+            loginException.setText("guest user doesnt login");
+        }
+        else if(Gameinit.wager && !setCoin)
+        {
+            coinException.setText("choose coin");
         }
     }
 }

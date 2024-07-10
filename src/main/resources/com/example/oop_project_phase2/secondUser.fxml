@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project_phase2.Game.guestUser">
    <children>
       <Label layoutX="26.0" layoutY="14.0" prefHeight="60.0" prefWidth="117.0" text="guest" />
@@ -19,7 +18,7 @@
       <TextField fx:id="coin" layoutX="354.0" layoutY="92.0" prefHeight="30.0" prefWidth="146.0" />
       <Button fx:id="wager" layoutX="391.0" layoutY="154.0" mnemonicParsing="false" onAction="#selectwager" prefHeight="30.0" prefWidth="71.0" text="wager" />
       <Button fx:id="startgame" layoutX="207.0" layoutY="377.0" mnemonicParsing="false" onAction="#startGame" prefHeight="50.0" prefWidth="162.0" text="start game" />
-      <Label fx:id="loginException" layoutX="94.0" layoutY="56.0" prefHeight="18.0" prefWidth="156.0" />
+      <Label fx:id="loginException" layoutX="36.0" layoutY="56.0" prefHeight="18.0" prefWidth="270.0" />
       <Label fx:id="coinException" layoutX="354.0" layoutY="56.0" prefHeight="18.0" prefWidth="156.0" />
    </children>
 </AnchorPane>
