@@ -375,7 +375,7 @@ public class Game {
         for(int i=0;i<Host.hand.size();i++)
         {
             handhostImage[i].setImage(resourceManagement.getImageCard(Host.hand.get(i).name));
-            handhostInformation[i].setText(Host.hand.get(i).defence_attack+"/"+Host.hand.get(i).playerDamage+"/"+Host.hand.get(i).Duration);
+            handhostInformation[i].setText("AD:"+Host.hand.get(i).defence_attack+"/PD:"+Host.hand.get(i).playerDamage+"/D:"+Host.hand.get(i).Duration);
         }
         for (int i=Host.hand.size();i<6;i++)
         {
@@ -385,7 +385,7 @@ public class Game {
         for(int i=0;i<Guest.hand.size();i++)
         {
             handGuestImage[i].setImage(resourceManagement.getImageCard(Guest.hand.get(i).name));
-            handGuestInformation[i].setText(Guest.hand.get(i).defence_attack+"/"+Guest.hand.get(i).playerDamage+"/"+Guest.hand.get(i).Duration);
+            handGuestInformation[i].setText("AD:"+Guest.hand.get(i).defence_attack+"/PD"+Guest.hand.get(i).playerDamage+"/D"+Guest.hand.get(i).Duration);
         }
         for (int i=Guest.hand.size();i<6;i++)
         {
