@@ -94,9 +94,9 @@ public class GameController {
         endRound(host1,quest1);
     }
     public static void endGAME(){
-        endGame(host1,quest1);
-        SQLhandler.updateUser(host1);
-        SQLhandler.updateUser(quest1);
+        endGame(host2,quest2);
+        SQLhandler.updateUser(host2);
+        SQLhandler.updateUser(quest2);
     }
     public static ArrayList<Card> get5CardHand(User user)
     {

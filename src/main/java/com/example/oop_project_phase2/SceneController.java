@@ -65,6 +65,7 @@ public class SceneController {
     public static void switchtoGame() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("game.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 956, 616);
+        Game.scene=scene;
         stage.setTitle("Rural wars");
         stage.setScene(scene);
         stage.show();

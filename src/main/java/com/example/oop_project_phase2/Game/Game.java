@@ -275,9 +275,12 @@ import com.example.oop_project_phase2.UserManagement.*;
 import com.example.oop_project_phase2.card.Card;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -290,6 +293,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class Game {
+    public static Scene scene;
     public static int temp;
     public static ImageView tempi;
     @FXML
@@ -510,13 +514,19 @@ public class Game {
                             if (GameController.finish){
                                 GameController.endGAME();
                                 setEndGame(GameController.host2,GameController.quest2);
-                                try {
-                                    SceneController.switchtoMainMenu();
-                                }
-                                catch (Exception e)
-                                {
+                                scene.addEventFilter(KeyEvent.KEY_PRESSED,(KeyEvent e) ->{
+                                    if(e.getCode()== KeyCode.ENTER)
+                                    {
+                                        try {
+                                            SceneController.switchtoMainMenu();
+                                        }
+                                        catch (Exception exception)
+                                        {
 
-                                }
+                                        }
+                                    }
+                                });
+
                             }
                             round.setText("round:"+GameController.round);
                         }
@@ -606,23 +616,23 @@ public class Game {
         {
             if(Gameinit.wager)
             {
-                endGame.setText("user "+host.Nickname+" win!!");
-                endGame.setText("user "+host.Nickname+" get "+Gameinit.wagerint+" coin");
-                endGame.setText("user "+guest.Nickname+" lose!!");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+" win!!");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+" get "+Gameinit.wagerint+" coin");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+" lose!!");
                 int a=-Gameinit.wagerint;
-                endGame.setText("user "+guest.Nickname+"get "+a+" coin");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+"get "+a+" coin");
                 host.Coins+=Gameinit.wagerint;
                 guest.Coins-=Gameinit.wagerint;
             }
             else
             {
-                endGame.setText("user "+host.Nickname+" win!!");
-                endGame.setText("user"+host.Nickname+" get 50 coin");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+" win!!");
+                endGame.setText(endGame.getText()+"user"+host.Nickname+" get 50 coin");
                 host.Coins+=50;
-                endGame.setText("user"+host.Nickname+" experience increase 60 ");
+                endGame.setText(endGame.getText()+"user"+host.Nickname+" experience increase 60 ");
                 host.XP+=60;
-                endGame.setText("user "+guest.Nickname+" lose!!");
-                endGame.setText("user"+guest.Nickname+" experience increase 5 ");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+" lose!!");
+                endGame.setText(endGame.getText()+"user"+guest.Nickname+" experience increase 5 ");
                 guest.XP+=5;
             }
         }
@@ -630,23 +640,23 @@ public class Game {
         {
             if(Gameinit.wager)
             {
-                endGame.setText("user "+guest.Nickname+" win!!");
-                endGame.setText("user "+guest.Nickname+" get "+Gameinit.wagerint+" coin");
-                endGame.setText("user "+host.Nickname+" lose!!");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+" win!!");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+" get "+Gameinit.wagerint+" coin");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+" lose!!");
                 int a=-Gameinit.wagerint;
-                endGame.setText("user "+host.Nickname+"get "+a+" coin");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+"get "+a+" coin");
                 guest.Coins+=Gameinit.wagerint;
                 host.Coins-=Gameinit.wagerint;
             }
             else
             {
-                endGame.setText("user "+guest.Nickname+" win!!");
-                endGame.setText("user"+guest.Nickname+" get 50 coin");
+                endGame.setText(endGame.getText()+"user "+guest.Nickname+" win!!");
+                endGame.setText(endGame.getText()+"user"+guest.Nickname+" get 50 coin");
                 guest.Coins+=50;
-                endGame.setText("user"+guest.Nickname+" experience increase 60 ");
+                endGame.setText(endGame.getText()+"user"+guest.Nickname+" experience increase 60 ");
                 guest.XP+=60;
-                endGame.setText("user "+host.Nickname+" lose!!");
-                endGame.setText("user"+host.Nickname+" experience increase 5 ");
+                endGame.setText(endGame.getText()+"user "+host.Nickname+" lose!!");
+                endGame.setText(endGame.getText()+"user"+host.Nickname+" experience increase 5 ");
                 host.XP+=5;
             }
         }
