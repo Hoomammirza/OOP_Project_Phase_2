@@ -22,9 +22,12 @@ public class CardsController {
             boolean empty=false;
             for (int i=0;i<21;i++)
             {
-                if(host.timeline[i]!=null && !Objects.equals(host.timeline[a].name, "empty"))
+                if(host.timeline[i]!=null )
                 {
-                    empty=true;
+                    if(!Objects.equals(host.timeline[i].name, "empty"))
+                    {
+                        empty=true;
+                    }
                 }
             }
             while (empty)

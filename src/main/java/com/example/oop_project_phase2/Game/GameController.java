@@ -6,11 +6,10 @@ import com.example.oop_project_phase2.UserManagement.PasswordExeption;
 import com.example.oop_project_phase2.UserManagement.SQLhandler;
 import com.example.oop_project_phase2.UserManagement.User;
 import com.example.oop_project_phase2.card.Card;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class GameController {
     public static int preXPH;
@@ -44,15 +43,16 @@ public class GameController {
         quest1.hand = get5CardHand(quest1);
         host1.timeline = new Card[21];
         quest1.timeline = new Card[21];
-        emptyCell(host1, quest1);
         if (whoStart) {
             Game.showHand(host1, quest1);
             host2 = host1;
             quest2 = quest1;
+            emptyCell(host2,quest2);
         } else {
             Game.showHand(quest1, host1);
             host2 = quest1;
             quest2 = host1;
+            emptyCell(host2,quest2);
         }
     }
 //    public void calculategame(){
@@ -75,6 +75,8 @@ public class GameController {
         host2 = quest2;
         quest2 = temp;
         Game.showHand(host2,quest2);
+        Game.setTimLineImage(host2,quest2);
+
     }
     public static void freshhand(){
         round--;
@@ -87,8 +89,8 @@ public class GameController {
             quest1.become6CardInHandOneTime = false;
         }
     }
-    public static void end4round(){
-        attackUser(host1,quest1);
+    public static void end4round(Label hitpoinhost,Label hitpointGuest){
+        attackUser(host1,quest1,hitpoinhost,hitpointGuest);
         endRound(host1,quest1);
     }
     public static void endGAME(){
@@ -165,61 +167,47 @@ public class GameController {
             user.hand.get(2).buffInHand(user);
         }
     }
-    public static void attackUser(User host,User guest)
+    public static void attackUser(User host, User guest, Label hitpointHost,Label hitpointGuest)
     {
-        for (int i=0;i<21 && !finish;i++)
-        {
-            int a=i+1;
-            TimelineController.reduceHitpoint(host,guest,i);
-            int c=host.maxHP-host.hitpoint;
-            System.out.println("user host: "+host.Nickname+"  damage:  "+c+"  HitPoint host:  "+host.hitpoint);
-            if(host.timeline[i]!=null)
-            {
-                if(!Objects.equals(host.timeline[i].name, "empty"))
-                {
-                System.out.println("card host block["+a+"] name:  "+host.timeline[i].name+"  card damage:  "+host.timeline[i].playerDamage);
-                }
-                else if(Objects.equals(host.timeline[i].name,"empty") && host.timeline[i].cardReference!=null)
-                {
-                    System.out.println("card host block["+a+"] name:  "+host.timeline[i].cardReference.name+"  card damage:  "+host.timeline[i].playerDamage);
-                }
-                else
-                {
+        Timer timer = new Timer();
+        for (int i=0;i<21 && !finish;i++) {
+            int a = i + 1;
+            TimelineController.reduceHitpoint(host, guest, i);
+            int c = host.maxHP - host.hitpoint;
+            System.out.println("user host: " + host.Nickname + "  damage:  " + c + "  HitPoint host:  " + host.hitpoint);
+            if (host.timeline[i] != null) {
+                if (!Objects.equals(host.timeline[i].name, "empty")) {
+                    System.out.println("card host block[" + a + "] name:  " + host.timeline[i].name + "  card damage:  " + host.timeline[i].playerDamage);
+                } else if (Objects.equals(host.timeline[i].name, "empty") && host.timeline[i].cardReference != null) {
+                    System.out.println("card host block[" + a + "] name:  " + host.timeline[i].cardReference.name + "  card damage:  " + host.timeline[i].playerDamage);
+                } else {
                     System.out.println("Wall");
                 }
 
+            } else {
+                System.out.println("card host block[" + a + "] name:  " + "empty" + "  card damage:  " + 0);
             }
-            else
-            {
-                System.out.println("card host block["+a+"] name:  "+"empty"+"  card damage:  "+0);
-            }
-            c=guest.maxHP-guest.hitpoint;
-            System.out.println("user guest: "+guest.Nickname+"  damage:  "+c+"  HitPoint guest:  "+guest.hitpoint);
-            if(guest.timeline[i]!=null)
-            {
-                if(!Objects.equals(guest.timeline[i].name, "empty"))
-                {
-                    System.out.println("card host block["+a+"] name:  "+guest.timeline[i].name+"  card damage:  "+guest.timeline[i].playerDamage);
-                }
-                else if(Objects.equals(guest.timeline[i].name,"empty") && guest.timeline[i].cardReference!=null)
-                {
-                    System.out.println("card host block["+a+"] name:  "+guest.timeline[i].cardReference.name+"  card damage:  "+guest.timeline[i].playerDamage);
-                }
-                else
-                {
+            c = guest.maxHP - guest.hitpoint;
+            System.out.println("user guest: " + guest.Nickname + "  damage:  " + c + "  HitPoint guest:  " + guest.hitpoint);
+            if (guest.timeline[i] != null) {
+                if (!Objects.equals(guest.timeline[i].name, "empty")) {
+                    System.out.println("card host block[" + a + "] name:  " + guest.timeline[i].name + "  card damage:  " + guest.timeline[i].playerDamage);
+                } else if (Objects.equals(guest.timeline[i].name, "empty") && guest.timeline[i].cardReference != null) {
+                    System.out.println("card host block[" + a + "] name:  " + guest.timeline[i].cardReference.name + "  card damage:  " + guest.timeline[i].playerDamage);
+                } else {
                     System.out.println("Wall");
                 }
 
-            }
-            else
-            {
-                System.out.println("card guest block["+a+"] name:  "+"empty"+"  card damage:  "+0);
+            } else {
+                System.out.println("card guest block[" + a + "] name:  " + "empty" + "  card damage:  " + 0);
 
             }
-            if(host.hitpoint<=0 || guest.hitpoint<=0)
-            {
-                finish=true;
+            if (host.hitpoint <= 0 || guest.hitpoint <= 0) {
+                finish = true;
             }
+
+                    hitpointHost.setText("hitpoint:"+host.hitpoint);
+                    hitpointGuest.setText("Guesthitpoint:"+guest.hitpoint);
         }
     }
     public static void endRound(User host,User guest)

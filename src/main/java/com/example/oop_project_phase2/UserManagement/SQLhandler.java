@@ -13,7 +13,7 @@ public class SQLhandler {
             if (isConnected)
                 throw new Exception("AlreadyConnected");
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","honor1384");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","1234");
             isConnected = true;
         } catch (Exception e){System.out.println(e);}
     }
