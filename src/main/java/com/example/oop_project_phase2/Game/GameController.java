@@ -32,8 +32,8 @@ public class GameController {
         quest1.maxHP = User.getMaxHp(quest1.Level);
         host1.hitpoint = host1.maxHP;
         quest1.hitpoint = quest1.maxHP;
-        preCoinsH = host1.XP;
-        preXPH = host1.Coins;
+        preCoinsH = host1.Coins;
+        preXPH = host1.XP;
         preCoinsG = quest1.Coins;
         preXPG = quest1.XP;
         whoStart = whoStart();
